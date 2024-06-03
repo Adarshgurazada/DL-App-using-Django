@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cortex Homepage</title>
+</head>
+    <body>
+        <h1>Cortex API</h1>
+        <div>
+            <a href="{% url 'dl_model' %}"><button>DL Model</button></a>
+            <a href="{% url 'ml_model' %}"><button>ML Model</button></a>
+        </div>
+    </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cortex Homepage</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .buttons {
+            display: flex;
+        }
+        .buttons a {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Cortex</div>
+        <div class="buttons">
+            <a href="{% url 'dl_model' %}"><button>DL Model</button></a>
+            <a href="{% url 'ml_model' %}"><button>ML Model</button></a>
+        </div>
+    </div>
+{% if not user.is_authenticated %}
+    <a href="{% url 'login' %}">Login</a>
+{% else %}
+    <a href="{% url 'logout' %}">Logout</a>
+{% endif %}
+</body>
+</html>

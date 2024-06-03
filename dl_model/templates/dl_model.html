@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DL Model Prediction</title>
+</head>
+<body>
+    <h1>DL Model Prediction</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if uploaded_image %}
+        {% if predicted_class %}
+            <h3>Predicted Class:</h3>
+            <p>{{ predicted_class }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DL Model Prediction</title>
+</head>
+<body>
+    <h1>DL Model Prediction</h1>
+    <div style="padding: 10px;">
+        <a href="{% url 'homepage' %}">Home</a> <!-- This is the home button -->
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Predict</button>
+    </form>
+    {% if uploaded_image %}
+        {% if predicted_class %}
+            <h3>Predicted Class:</h3>
+            <p>{{ predicted_class }}</p>
+        {% endif %}
+    {% endif %}
+    {% if not user.is_authenticated %}
+        <a href="{% url 'login' %}">Login</a>
+    {% else %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
+</body>
+</html>
